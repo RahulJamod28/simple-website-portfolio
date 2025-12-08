@@ -1,0 +1,189 @@
+/* -------------------------
+   Global Theme & Variables
+-------------------------- */
+:root {
+  --bg: #eef2f3;
+  --card: rgba(255, 255, 255, 0.65);
+  --border: rgba(255, 255, 255, 0.35);
+  --text: #222;
+  --muted: #666;
+  --primary: #1e88e5;
+  --primary-hover: #0d6efd;
+  --radius: 12px;
+  --transition: 0.25s ease;
+}
+
+/* -------------------------
+   Reset + Basic Styling
+-------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(120deg, #89f7fe, #66a6ff);
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  color: var(--text);
+}
+
+/* -------------------------
+   Main Container
+-------------------------- */
+.container {
+  width: 100%;
+  max-width: 850px;
+  background: var(--card);
+  backdrop-filter: blur(18px);
+  padding: 30px;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* -------------------------
+   Header
+-------------------------- */
+header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.logo {
+  width: 55px;
+  height: 55px;
+  background: var(--primary);
+  color: white;
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+#page-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.meta {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* -------------------------
+   FORM GRID
+-------------------------- */
+form.grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.full {
+  grid-column: span 2;
+}
+
+/* -------------------------
+   Form Elements
+-------------------------- */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  outline: none;
+  background: rgba(255,255,255,0.8);
+  transition: var(--transition);
+}
+
+textarea {
+  height: 100px;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 8px rgba(30,136,229,0.4);
+  background: white;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* -------------------------
+   Buttons
+-------------------------- */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  grid-column: span 2;
+}
+
+button {
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: var(--radius);
+  border: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+button.primary {
+  background: var(--primary);
+  color: white;
+}
+
+button.primary:hover {
+  background: var(--primary-hover);
+}
+
+button.ghost {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+button.ghost:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* -------------------------
+   Footer
+-------------------------- */
+footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* -------------------------
+   Mobile Responsive
+-------------------------- */
+@media (max-width: 600px) {
+  .full {
+    grid-column: span 1;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}

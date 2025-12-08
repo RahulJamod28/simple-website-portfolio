@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Online Complaint — Major Project</title>
+  <link rel="stylesheet" href="css/style2.css">
+  
+</head>
+<body>
+  <div class="container" role="application" aria-labelledby="page-title">
+    <header>
+      <div class="logo" aria-hidden="true">OC</div>
+      <div>
+        <h1 id="page-title">Online Complaint Portal</h1>
+        <div class="meta">Register your complaint — we'll track and try to resolve it. Fields marked * are required.</div>
+      </div>
+    </header>
+
+    <main>
+      <!-- NOTE: action="/submit" is placeholder — replace with your backend endpoint -->
+      <form class="grid" method="post" action="/submit" enctype="multipart/form-data" autocomplete="on" novalidate>
+        <!-- Complainant information -->
+        <div>
+          <label for="fullname">Full name *</label>
+          <input id="fullname" name="fullname" type="text" placeholder="Enter your full name" required maxlength="80" />
+        </div>
+
+        <div>
+          <label for="email">Email address *</label>
+          <input id="email" name="email" type="email" placeholder="name@example.com" required />
+        </div>
+
+        <div>
+          <label for="phone">Phone / Mobile *</label>
+          <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" pattern="^\+?\d{7,15}$" required />
+          <div class="hint">Include country code if outside India (e.g. +1 5551234567)</div>
+        </div>
+
+        <div>
+          <label for="pincode">Pincode / ZIP</label>
+          <input id="pincode" name="pincode" type="text" placeholder="e.g. 452001" pattern="\d{3,10}" maxlength="10" />
+        </div>
+
+        <div class="full">
+          <label for="address">Address</label>
+          <textarea id="address" name="address" placeholder="Street address, city, state..." maxlength="300"></textarea>
+        </div>
+
+        <!-- Complaint details -->
+        <div>
+          <label for="category">Complaint category *</label>
+          <input list="categories" id="category" name="category" placeholder="Choose or type category" required>
+          <datalist id="categories">
+            <option value="Road / Infrastructure"></option>
+            <option value="Water / Sewage"></option>
+            <option value="Electricity / Power"></option>
+            <option value="Sanitation / Garbage"></option>
+            <option value="Noise / Pollution"></option>
+            <option value="Corruption / Grievance"></option>
+            <option value="Other"></option>
+          </datalist>
+        </div>
+
+        <div>
+          <label for="priority">Priority</label>
+          <select id="priority" name="priority" aria-label="Select priority level">
+            <option value="low">Low</option>
+            <option value="normal" selected>Normal</option>
+            <option value="high">High</option>
+            <option value="urgent">Urgent</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="subject">Subject / Short title *</label>
+          <input id="subject" name="subject" type="text" placeholder="Brief title (max 100 chars)" required maxlength="100" />
+        </div>
+
+        <div>
+          <label for="incident_date">Date of incident</label>
+          <input id="incident_date" name="incident_date" type="date" />
+        </div>
+
+        <div class="full">
+          <label for="description">Detailed description *</label>
+          <textarea id="description" name="description" placeholder="Explain the issue, location, people involved, steps already taken..." required maxlength="2000"></textarea>
+          <div class="hint">Include exact location, nearest landmark and any supporting details. Max 2000 characters.</div>
+        </div>
+
+        <div>
+          <label for="evidence">Attach evidence (photo / video / doc)</label>
+          <input id="evidence" name="evidence" type="file" accept="image/*,video/*,application/pdf" />
+          <div class="hint">Allowed: images, short videos, PDFs. Max file size depend on your server settings.</div>
+        </div>
+
+        <div>
+          <label for="anonymous">Complaint visibility</label>
+          <select id="anonymous" name="anonymous">
+            <option value="named" selected>Show my name to authorities</option>
+            <option value="anonymous">Keep my identity anonymous</option>
+          </select>
+        </div>
+
+        <div class="full" aria-hidden="false">
+          <label for="terms">Consent *</label>
+          <div class="row">
+            <input id="terms" name="terms" type="checkbox" required />
+            <label for="terms" style="margin:0;font-weight:500;">I confirm that the information provided is true to the best of my knowledge and allow processing of this complaint.</label>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="reset" class="ghost">Reset</button>
+          <button type="submit" class="primary">Submit Complaint</button>
+        </div>
+      </form>
+    </main>
+
+    <footer>
+      <div style="font-size:13px;color:var(--muted);">
+        After submission you'll receive a complaint ID by email (if provided). Replace the form action with your server endpoint to store or forward complaints.
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

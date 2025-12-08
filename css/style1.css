@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.navbar{
+    height: 66px;
+    background-color: black;
+}
+
+.container{
+    height: 966px;
+    background-color: white;
+}
+
+.footer{
+    height: 266px;
+    background-color: black;
+    color: white;
+}
