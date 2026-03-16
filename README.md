@@ -26,5 +26,4 @@ It showcases my skills, projects, and work experience as a web developer.
 
 ---
 
-## 📂 Project Structure
 
